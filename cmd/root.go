@@ -6,6 +6,7 @@ import (
 	"os/exec"
 	"strings"
 
+	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 	"github.com/tidwall/buntdb"
 )
@@ -16,7 +17,8 @@ var rootCmd = &cobra.Command{
 	Args:  cobra.MinimumNArgs(1),
 	Long:  `sssh is a tool for managing your SSH hosts. It allows you to store your hosts in a central location and then connect to them using a simple command.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		db, _ := buntdb.Open("database.db")
+		home, _ := homedir.Dir()
+		db, _ := buntdb.Open(home + "/ssh-manager.db")
 
 		defer db.Close()
 

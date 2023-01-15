@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	github.com/manifoldco/promptui v0.9.0
+	github.com/mitchellh/go-homedir v1.1.0
 	github.com/spf13/cobra v1.6.1
 	github.com/tidwall/buntdb v1.2.10
 )

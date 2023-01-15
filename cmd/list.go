@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/manifoldco/promptui"
+	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 	"github.com/tidwall/buntdb"
 )
@@ -16,7 +17,8 @@ var listCmd = &cobra.Command{
 	Short: "List all hosts",
 	Long:  `List all hosts`,
 	Run: func(cmd *cobra.Command, args []string) {
-		db, _ := buntdb.Open("database.db")
+		home, _ := homedir.Dir()
+		db, _ := buntdb.Open(home + "/ssh-manager.db")
 
 		defer db.Close()
 
