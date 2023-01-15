@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 	"strings"
 
 	"github.com/manifoldco/promptui"
@@ -36,8 +37,7 @@ var deleteCmd = &cobra.Command{
 		_, result, err := prompt.Run()
 
 		if err != nil {
-			fmt.Printf("Prompt failed %v \n", err)
-
+			os.Exit(1)
 		}
 
 		index := 0

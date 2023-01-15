@@ -40,8 +40,7 @@ var listCmd = &cobra.Command{
 		_, result, err := prompt.Run()
 
 		if err != nil {
-			fmt.Printf("Prompt failed %v \n", err)
-
+			os.Exit(1)
 		}
 
 		index := 0
